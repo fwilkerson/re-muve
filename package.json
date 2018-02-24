@@ -1,0 +1,36 @@
+{
+	"name": "re-muve",
+	"version": "0.1.0",
+	"description": "re|muve - a micro view builder",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fwilkerson/re-muve.git"
+	},
+	"keywords": ["jsx", "dom", "vdom"],
+	"author": "Frank A. Wilkerson",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/fwilkerson/re-muve/issues"
+	},
+	"homepage": "https://github.com/fwilkerson/re-muve#readme",
+	"devDependencies": {
+		"prettier": "^1.10.2",
+		"xo": "^0.20.3"
+	},
+	"prettier": {
+		"bracketSpacing": false,
+		"jsxBracketSameLine": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "es5",
+		"useTabs": true
+	},
+	"xo": {
+		"envs": ["browser"],
+		"prettier": true
+	}
+}
