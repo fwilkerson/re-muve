@@ -26,7 +26,37 @@ export function h(name, attr, ...args) {
 	return {name, attr, children, key: attr.key};
 }
 
-export function render() {}
+export function render(vdom, parent, merge) {
+	return diff(parent, merge, vdom);
+}
+
+function diff(parent, prev, next) {
+	if (typeof next === 'string') {
+		return parent.appendChild(patchTextNode(prev, next));
+	}
+}
+
+function patchTextNode(prev, next) {
+	let node = prev;
+	// We can just update the value if the current node is a textNode
+	if (
+		!isNullOrUndefined(prev) &&
+		prev.splitText !== undefined &&
+		!isNullOrUndefined(prev.parentNode)
+	) {
+		if (prev.nodeValue !== next) {
+			prev.nodeValue = next;
+		}
+	} else {
+		node = document.createTextNode(next);
+		if (!isNullOrUndefined(prev)) {
+			if (!isNullOrUndefined(prev.parentNode)) {
+				prev.parentNode.replaceChild(node, prev);
+			}
+		}
+	}
+	return node;
+}
 
 function isNullOrUndefined(val) {
 	if (val === null) return true;
