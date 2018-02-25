@@ -1,4 +1,5 @@
 {
 	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
 	"xo.enable": true
 }
